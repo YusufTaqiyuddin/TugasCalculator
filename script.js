@@ -43,6 +43,7 @@ const calculate = () => {
     case "/":
       result = parseFloat(prevNumber) / parseFloat(currentNumber);
       break;
+
     default:
       break;
   }
@@ -61,6 +62,15 @@ inputDecimal = (dot) => {
 const calculatorScreen = document.querySelector(".calculator-screen");
 
 const numbers = document.querySelectorAll(".number");
+const numberZero = document.querySelectorAll(".number-zero-btn");
+
+numberZero.forEach((number) => {
+  number.addEventListener("click", (event) => {
+    inputNumber(event.target.value);
+    updateScreen(currentNumber);
+  });
+});
+
 numbers.forEach((number) => {
   number.addEventListener("click", (event) => {
     inputNumber(event.target.value);
